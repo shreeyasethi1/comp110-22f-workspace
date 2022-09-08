@@ -17,19 +17,19 @@ white = "\U00002B1C"
 while index < len(secret_word):
     match_character = False
     secret_index = 0 
-    # if the character in guess and secret_word in the same index is the same, printing green block 
-    # else going into a while loop to find out if the guess character matches the character of the secret_word on a different index
-    # if neither, printing the white block 
+# if the character in guess and secret_word in the same index is the same, printing green block 
+# else going into a while loop to find out if the guess character matches the character of the secret_word on a different index
+# if neither, printing the white block 
     if guess[index] == secret_word[index]:
         emoji += green
     else:
-        while match_character == False and secret_index < len(secret_word):
+        while match_character is False and secret_index < len(secret_word):
             if secret_word[secret_index] == guess[index]:
-                match_character = True
+                match_character is True
             else:
                 secret_index += 1
 
-        if match_character == True:
+        if match_character is True:
             emoji += yellow
         else:
             emoji += white
