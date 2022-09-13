@@ -16,22 +16,23 @@ def contains_char(main_string: str, one_char: str) -> bool:
             index += 1 
     return False 
 
+
 # string code for the three color emojis
 green: str = "\U0001F7E9"
 yellow: str = "\U0001F7E8"
 white: str = "\U00002B1C" 
 
 
-def emojified(guess: str, secret: str) -> str: 
+def emojified(guess: str, secret: str) -> str:  
     """To test for the codification of a yellow or white box."""
     assert len(guess) == len(secret)
     i: int = 0 
     emoji: str = ""
     while i < len(secret): 
-        if contains_char(secret, guess[i]) == True and guess[i] != secret[i]: 
+        if contains_char(secret, guess[i]) is True and guess[i] != secret[i]: 
             # if the character is found in the word but the index isn't the same yellow box is printed
             emoji += yellow 
-        elif contains_char(secret, guess[i]) == False: 
+        elif contains_char(secret, guess[i]) is False: 
             emoji += white 
         else: 
             emoji += green
@@ -52,7 +53,7 @@ def main() -> None:
     # defining required variables 
     secret: str = "codes"
     turn: int = 1
-    win = False
+    win: bool = False
     while turn <= 6 and win == False:
         print("=== Turn " + str(turn) + "/6 " + "===")
         entered_word = input_guess(5)
