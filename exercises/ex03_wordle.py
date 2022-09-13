@@ -49,7 +49,6 @@ def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret: str = "codes"
     turn: int = 1
-    win: bool = False
     while turn < 7:
         print("=== Turn " + str(turn) + "/6 " + "===")
         entered_word: str = input_guess(len(secret))
@@ -59,7 +58,7 @@ def main() -> None:
             return None
         turn += 1
     print( "X/6 - Sorry, try again tomorrow!")
-    
+
 
 if __name__ == "__main__":
     main()    
