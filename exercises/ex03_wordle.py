@@ -52,20 +52,19 @@ def main() -> None:
     """The entrypoint of the program and main game loop."""
     # defining required variables 
     secret: str = "codes"
-    turn: int = 1
+    turn: int = 0
     win: bool = False
-    while turn <= 6 and win is False:
+    while turn < 6 and not win:
+        turn += 1 
         print("=== Turn " + str(turn) + "/6 " + "===")
-        entered_word = input_guess(5)
-        print(emojified(entered_word, secret))
+        entered_word: str = input_guess(5)
+        emojis: str = emojified(entered_word, secret)
         # when the guessed word is equal to the secret word
         if entered_word == secret:
             win = True
-        # keep going till turn becomes greater than 6 
-        else:
-            turn += 1 
+        print(emojis)         
     
-    if win is True: 
+    if win: 
         print("You won in " + str(turn) + " /6 turns!")
     else: 
         print("Sorry, try again tomorrow!")
