@@ -15,9 +15,9 @@ def contains_char(main_string: str, one_char: str) -> bool:
     return False 
 
 
-green: str = "\U0001F7E9"
-yellow: str = "\U0001F7E8"
-white: str = "\U00002B1C" 
+GREEN: str = "\U0001F7E9"
+YELLOW: str = "\U0001F7E8"
+WHITE: str = "\U00002B1C" 
 
 
 def emojified(guess: str, secret: str) -> str:  
@@ -28,11 +28,11 @@ def emojified(guess: str, secret: str) -> str:
     while i < len(secret): 
         if contains_char(secret, guess[i]): 
             if secret[i] == guess[i]:
-                emoji += green 
+                emoji += GREEN 
             else: 
-                emoji += yellow
+                emoji += YELLOW
         else: 
-            emoji += white 
+            emoji += WHITE 
         i += 1
     return emoji
 
@@ -54,10 +54,10 @@ def main() -> None:
         entered_word: str = input_guess(len(secret))
         print(emojified(entered_word, secret))
         if entered_word == secret:
-            print("You won in " + str(turn) + " /6 turns!")
+            print("You won in " + str(turn) + "/6 turns!")
             return None
         turn += 1
-    print( "X/6 - Sorry, try again tomorrow!")
+    print("X/6 - Sorry, try again tomorrow!")
 
 
 if __name__ == "__main__":
