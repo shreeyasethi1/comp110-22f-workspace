@@ -8,7 +8,7 @@ def contains_char(main_string: str, one_char: str) -> bool:
     """Looking for the presence of a charcater in a longer string."""
     assert len(one_char) == 1 
     index: int = 0
-    while len(main_string) > index:
+    while index < len(main_string):
         # checking for the one character and exiting the while loop when the main_string ends
         if main_string[index] == one_char:
             return True 
@@ -29,13 +29,13 @@ def emojified(guess: str, secret: str) -> str:
     i: int = 0 
     emoji: str = ""
     while i < len(secret): 
-        if contains_char(secret, guess[i]) is True and guess[i] != secret[i]: 
-            # if the character is found in the word but the index isn't the same yellow box is printed
+        if guess[i] == secret[i]: 
+            emoji += green 
+        elif contains_char(secret, guess[i]): 
+        # if the character is found in the word but the index isn't the same yellow box is printed
             emoji += yellow 
-        elif contains_char(secret, guess[i]) is False: 
-            emoji += white 
         else: 
-            emoji += green
+            emoji += white
         i += 1
     return emoji
 
