@@ -48,21 +48,17 @@ def input_guess(guess_expected_len: int) -> str:
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     secret: str = "codes"
-    turn: int = 0
+    turn: int = 1
     win: bool = False
-    while turn < 6 and not win:
-        turn += 1 
+    while turn < 7:
         print("=== Turn " + str(turn) + "/6 " + "===")
         entered_word: str = input_guess(len(secret))
-        emojis: str = emojified(entered_word, secret)
+        print(emojified(entered_word, secret))
         if entered_word == secret:
-            win = True
-        print(emojis)         
-    
-    if win: 
-        print("You won in " + str(turn) + " /6 turns!")
-    else: 
-        print("Sorry, try again tomorrow!")
+            print("You won in " + str(turn) + " /6 turns!")
+            return None
+        turn += 1
+    print( "X/6 - Sorry, try again tomorrow!")
     
 
 if __name__ == "__main__":
