@@ -42,9 +42,9 @@ def emojified(guess: str, secret: str) -> str:
 
 def input_guess(guess_expected_len: int) -> str:
     """To determine the word given matches the length expected."""
-    entered_word = input("Enter a " + str(guess_expected_len) + " character word:") 
+    entered_word = input("Enter a " + str(guess_expected_len) + " character word: ") 
     while len(entered_word) != guess_expected_len:
-        entered_word = input("That wasn't " + str(guess_expected_len) + " chars! Try again:")
+        entered_word = input("That wasn't " + str(guess_expected_len) + " chars! Try again: ")
     return entered_word   
 
 
@@ -54,7 +54,7 @@ def main() -> None:
     secret: str = "codes"
     turn: int = 1
     win: bool = False
-    while turn <= 6 and win == False:
+    while turn <= 6 and win is False:
         print("=== Turn " + str(turn) + "/6 " + "===")
         entered_word = input_guess(5)
         print(emojified(entered_word, secret))
@@ -65,7 +65,7 @@ def main() -> None:
         else:
             turn += 1 
     
-    if win == True: 
+    if win is True: 
         print("You won in " + str(turn) + " /6 turns!")
     else: 
         print("Sorry, try again tomorrow!")
