@@ -64,5 +64,4 @@ def main() -> None:
         print("Sorry, try again tomorrow!")
     
 if __name__ == "__main__":
-    main()
- 
+    main()    
